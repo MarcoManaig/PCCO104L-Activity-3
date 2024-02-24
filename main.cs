@@ -1,21 +1,28 @@
 using System;
+public class Program {
+    public static void Main(string[] args) {
+        while(true){
+            Console.WriteLine("Enter a number: ");
+            string num = Console.ReadLine();
 
-class Program {
-  public static void Main (string[] args) {
-
-    int num, space, symbol;
-
-    Console.WriteLine("Enter a number:");
-    num = int.Parse(Console.ReadLine());
-    
-    for (int i = 1; i <= num; i++){
-      for (space = 1; space <= num - i; space++){
-        Console.WriteLine(" ");
-      }
-        Console.WriteLine("*");
-      }
-      Console.WriteLine();
+            if (int.TryParse(num, out int n) && n >= 0){
+                if (n == 0){
+                    Console.WriteLine("Closing Program...");
+                    break;
+                }
+                for (int i = 0; i < n; i++){
+                    for (int j = 0; j < n - i - 1; j++){
+                        Console.Write(" ");
+                    }
+                    for (int j = 0; j < 2 * i + 1; j++){
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
+                }
+            else{
+                Console.WriteLine("Invalid Value");
+            }
+         }
     }
-    Console.WriteLine("Closing program...");
-  }
 }
